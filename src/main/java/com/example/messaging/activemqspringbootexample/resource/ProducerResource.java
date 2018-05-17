@@ -22,6 +22,7 @@ public class ProducerResource {
 	@GetMapping("/{message}")
 	public String publish(@PathVariable("message") final String message) {
 		jmsTemplate.convertAndSend(queue,message);
+		System.out.println("Produced message:::::::::::: "+ message);
 		return "Published successfully!!!";
 	}
 }
